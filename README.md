@@ -1,37 +1,28 @@
-# log4bash
+# Bash Logger
 
-Let's face it - plain old **echo** just doesn't cut it.  **log4bash** is an attempt to have better logging for Bash scripts (i.e. make logging in Bash suck less).
+Fork of Bash Logger designed to incorperate [PSR-3](http://www.php-fig.org/psr/psr-3/) compliance.
 
 ## Contributors
 
-Fred Palmer
+- Dean Rather
+- Fred Palmer
 
-## Using log4bash
+## Using Bash Logger
 
-**source** the *log4bash.sh* script at the beginning of any Bash program.
+**source** the *bash-logger.sh* script at the beginning of any Bash program.
 
 ``` bash
 
-    #!/usr/bin/env bash
-    source log4bash.sh
+    #!/bin/bash
+    source /path/to/bash-logger.sh
 
-    log "This is regular log message... log and log_info do the same thing";
-
-    log_warning "Luke ... you turned off your targeting computer";
-    log_info "I have you now!";
-    log_success "You're all clear kid, now let's blow this thing and go home.";
-    log_error "One thing's for sure, we're all gonna be a lot thinner.";
-
-    # If you have figlet installed -- you'll see some big letters on the screen!
-    log_captains "What was in the captain's toilet?";
-
-    # If you have the "say" command (e.g. on a Mac)
-    log_speak "Resistance is futile";
+    INFO "This is a test info log"
 
 ```
 
-## An Overview of log4bash
+> Function names are in CAPS as not to conflict with the `info` function and `alert` aliases.
 
+## An Overview of Bash Logger
 
 ### Colorized Output
 
@@ -39,51 +30,35 @@ Fred Palmer
 
 ### Logging Levels
 
-* **log_info**
+Bash Logger supports the logging levels described by [RFC 5424](http://tools.ietf.org/html/rfc5424).
 
-    Prints an "INFO" level message to stdout with the timestamp of the occurrence.
+- **DEBUG** Detailed debug information.
 
-* **log_warning**
+- **INFO** Interesting events. Examples: User logs in, SQL logs.
 
-    Prints a "WARNING" level message to stdout with the timestamp of the occurrence.
+- **NOTICE** Normal but significant events.
 
-* **log_success**
+- **WARNING** Exceptional occurrences that are not errors. Examples:
+  Use of deprecated APIs, poor use of an API, undesirable things that are not
+  necessarily wrong.
 
-    Prints a "SUCCESS" level message to stdout with the timestamp of the occurrence.
+- **ERROR** Runtime errors that do not require immediate action but
+  should typically be logged and monitored.
 
-* **log_error**
+- **CRITICAL** Critical conditions. Example: Application component
+  unavailable, unexpected exception.
 
-    Prints an "ERROR" level message to stdout with the timestamp of the occurrence.
+- **ALERT** Action must be taken immediately. Example: Entire website
+  down, database unavailable, etc. This should trigger the SMS alerts and wake
+  you up.
 
-### Special Logging Abilities
+- **EMERGENCY** Emergency: system is unusable.
 
-* **log_speak**
+### Handlers
 
-    On the Mac platform this will use the say command to echo the command to the current audio output device.
+By default:
+- Logs are displayed in colour
+- Logs are written to `~/bash-logger.log`
+- **error** level logs and above `exit` with an error code
 
-* **log_captains**
-
-    If the *figlet* program is installed this will print out an ascii-art depiction of the phrase passed to the function.
-    
-* **log_campfire**
-
-    Posts a message to your campfire configured by setting the variables for **CAMPFIRE_API_AUTH_TOKEN** and **CAMPFIRE_NOTIFICATION_URL**.
-
-### Other Useful Tidbits
-
-* **SCRIPT_ARGS**
-
-    A global array of all the arguments used to create run your script
-
-* **SCRIPT_NAME**
-
-    The script name (sometimes tricky to get right depending on how one invokes a script).
-
-* **SCRIPT_BASE_DIR**
-
-    The script's base directory which is not always the current working directory.
-
-### More to Come
-
-    Please add any feature requests to a ticket for this project.
-
+The colours, logfile, default behavior, and log-level behavior can all be overwritten, see [examples.sh](examples.sh) for examples.
