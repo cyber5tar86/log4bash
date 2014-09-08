@@ -26,7 +26,7 @@ Fork of Bash Logger designed to incorperate [PSR-3](http://www.php-fig.org/psr/p
 
 ### Colorized Output
 
-[![](Colour Screenshot)](http://i.imgur.com/xnXp8VQ.png)
+![Colour Screenshot](http://i.imgur.com/xnXp8VQ.png)
 
 ### Logging Levels
 
@@ -54,7 +54,7 @@ Bash Logger supports the logging levels described by [RFC 5424](http://tools.iet
 
 - **EMERGENCY** Emergency: system is unusable.
 
-### Handlers
+## Handlers
 
 By default:
 - Logs are displayed in colour
