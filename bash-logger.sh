@@ -40,7 +40,7 @@ EMERGENCY() { LOG_HANDLER_DEFAULT "$FUNCNAME" "$@"; exit 1; }
 
 # Outputs a log formatted using the LOG_FORMAT and DATE_FORMAT configurables
 # Usage: FORMAT_LOG <log level> <log message>
-# Eg: FORMAT LOG CRITICAL "My critical log"
+# Eg: FORMAT_LOG CRITICAL "My critical log"
 FORMAT_LOG() {
     local level="$1"
     local log="$2"

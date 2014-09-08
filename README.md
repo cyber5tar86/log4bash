@@ -26,7 +26,7 @@ Fork of Bash Logger designed to incorperate [PSR-3](http://www.php-fig.org/psr/p
 
 ### Colorized Output
 
-[![](https://img.skitch.com/20110526-46e6ng8hj11pshw2s5my7e841.jpg)](https://img.skitch.com/20110526-46e6ng8hj11pshw2s5my7e841.jpg)
+[![](Colour Screenshot)](http://i.imgur.com/xnXp8VQ.png)
 
 ### Logging Levels
 
