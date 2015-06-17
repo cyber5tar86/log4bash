@@ -51,7 +51,7 @@ FORMAT_LOG() {
     formatted_log="${formatted_log/'%LEVEL'/$level}"
     formatted_log="${formatted_log/'%PID'/$pid}"
     formatted_log="${formatted_log/'%DATE'/$date}"
-    echo "$formatted_log"
+    echo "$formatted_log\n"
 }
 
 # Calls one of the individual log functions
@@ -88,7 +88,7 @@ LOG_HANDLER_COLORTERM() {
     local color_variable="LOG_COLOR_$level"
     local color="${!color_variable}"
     log="$color$log$RESET_COLOR"
-    echo -e "$log"
+    echo -en "$log"
 }
 
 # Appends a log to the configured logfile
