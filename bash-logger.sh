@@ -73,7 +73,7 @@ LOG() {
 # Eg: LOG_HANDLER_DEFAULT DEBUG "My debug log"
 LOG_HANDLER_DEFAULT() {
     # $1 - level
-    # $2 - message    
+    # $2 - message
     local formatted_log="$(FORMAT_LOG "$@")"
     LOG_HANDLER_COLORTERM "$1" "$formatted_log"
     LOG_HANDLER_LOGFILE "$1" "$formatted_log"
